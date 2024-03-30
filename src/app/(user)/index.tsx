@@ -3,7 +3,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <Redirect href={'/menu/'} />
+    <Redirect href={'/(user)/menu/'} />
   )
 }
 

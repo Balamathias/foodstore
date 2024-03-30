@@ -27,7 +27,7 @@ const CartScreen = () => {
       />
 
       <View style={{ marginTop: 'auto', gap: 12 }}>
-        <Text style={{ fontSize: 23, marginVertical: 10, fontWeight: '600' }}>Total: ${total.toFixed(2)}</Text>
+        <Text style={{ fontSize: 23, marginVertical: 10, fontWeight: '600', }}>Total: ${total.toFixed(2)}</Text>
         <Button text='Proceed to Checkout' />
       </View>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />

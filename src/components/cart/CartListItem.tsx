@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import { View, StyleSheet, Image, Pressable, useColorScheme } from 'react-native';
 import React from 'react';
 import { Link } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
@@ -6,6 +6,7 @@ import { CartItem } from '@/src/app/types';
 import { useCart } from '@/src/providers/CartProvider';
 import { defaultImage } from '../products/ProductListItem';
 import Colors from '@/src/constants/Colors';
+import { Text } from '../Themed';
 
 type CartListItemProps = {
   cartItem: CartItem;
@@ -13,8 +14,9 @@ type CartListItemProps = {
 
 const CartListItem = ({ cartItem }: CartListItemProps) => {
   const { updateQuantity } = useCart();
+  const colorScheme = useColorScheme()
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: Colors[colorScheme || 'light'].card}]}>
       <Image
         source={{ uri: cartItem.product.image || defaultImage }}
         style={styles.image}
@@ -49,7 +51,7 @@ const CartListItem = ({ cartItem }: CartListItemProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     borderRadius: 10,
     padding: 5,
     flex: 1,

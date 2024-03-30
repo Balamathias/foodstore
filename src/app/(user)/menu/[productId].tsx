@@ -3,9 +3,10 @@ import Button from '@/src/components/Button'
 import Colors from '@/src/constants/Colors'
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
 import React, { useState } from 'react'
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, useColorScheme } from 'react-native'
 import { CartItem, PizzaSize, Product } from '../../types'
 import { useCart } from '@/src/providers/CartProvider'
+import { Text, View } from '@/src/components/Themed'
 
 const sizes: PizzaSize[] = ['S', 'M', 'L', 'XL']
 
@@ -14,6 +15,7 @@ const ProductDetail = () => {
     const { productId } = useLocalSearchParams()
     const product = products.find(p => p.id === parseInt(productId as string) )
     const router = useRouter()
+    const colorScheme = useColorScheme()
 
     const { addItem } = useCart()
 
@@ -40,17 +42,17 @@ const ProductDetail = () => {
 
         <Text style={styles.selectSizeText}>Select Size</Text>
 
-        <View style={[styles.sizeContainer]} >
+        <View style={[styles.sizeContainer, {backgroundColor: Colors[colorScheme || 'light'].background,}]} >
           {
             sizes.map((size) => (
               <Pressable onPress={() => onSelectStyle(size as PizzaSize)} 
-                style={[styles.size, { 
-                  backgroundColor: selectedSize === size ? Colors.light.tabIconSelected : '#f2f2f2',
+                style={[styles.size, {backgroundColor: Colors[colorScheme || 'light'].tabIconSelected}, { 
+                  backgroundColor: selectedSize === size ? Colors.light.tabIconSelected : Colors[colorScheme || 'light'].card,
                   }]}
                   key={size}
                 >
                 <Text style={[styles.sizeText, { 
-                  color: selectedSize === size ? Colors.dark.text : Colors.light.text,
+                  color: selectedSize === size || colorScheme === 'dark' ? Colors.dark.text : Colors.light.text,
                   }]}>{size}</Text>
               </Pressable>
             ))
@@ -64,7 +66,6 @@ const ProductDetail = () => {
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.light.background,
     flex: 1,
     padding: 10,
   },
@@ -100,7 +101,6 @@ const styles = StyleSheet.create({
     borderRadius: 22.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f2f2f2'
   },
   sizeText: {
     justifyContent: 'center',
