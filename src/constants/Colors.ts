@@ -8,7 +8,11 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
-    card: '#fff'
+    card: '#fff',
+    success: '#28a745',
+    warning: '#ffc107',
+    error: '#dc3545',
+    pending: '#007bff',
   },
   dark: {
     text: '#fff',
@@ -17,5 +21,9 @@ export default {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
     card: '#111',
+    success: '#28a745',
+    warning: '#ffc107',
+    error: '#dc3545',
+    pending: '#007bff',
   },
 };

@@ -1,4 +1,4 @@
-import { Order } from '../../src/types';
+import { Order } from '@/src/app/types';
 import products from './products';
 import dayjs from 'dayjs';
 
@@ -52,6 +52,72 @@ const orders: Order[] = [
     created_at: now.subtract(3, 'weeks').toISOString(),
     total: 11.4,
     status: 'Delivered',
+    user_id: '1',
+    order_items: [
+      {
+        id: 1,
+        order_id: 23445,
+        size: 'M',
+        quantity: 1,
+        product_id: products[3].id,
+        products: products[3],
+      },
+      {
+        id: 2,
+        order_id: 23445,
+        size: 'M',
+        quantity: 1,
+        product_id: products[7].id,
+        products: products[7],
+      },
+      {
+        id: 3,
+        order_id: 23445,
+        size: 'L',
+        quantity: 1,
+        product_id: products[8].id,
+        products: products[8],
+      },
+    ],
+  },
+  {
+    id: 23446,
+    created_at: now.subtract(4, 'weeks').toISOString(),
+    total: 11.4,
+    status: 'Delivering',
+    user_id: '1',
+    order_items: [
+      {
+        id: 1,
+        order_id: 23445,
+        size: 'M',
+        quantity: 1,
+        product_id: products[3].id,
+        products: products[3],
+      },
+      {
+        id: 2,
+        order_id: 23445,
+        size: 'M',
+        quantity: 1,
+        product_id: products[7].id,
+        products: products[7],
+      },
+      {
+        id: 3,
+        order_id: 23445,
+        size: 'L',
+        quantity: 1,
+        product_id: products[8].id,
+        products: products[8],
+      },
+    ],
+  },
+  {
+    id: 23447,
+    created_at: now.subtract(5, 'weeks').toISOString(),
+    total: 11.4,
+    status: 'New',
     user_id: '1',
     order_items: [
       {

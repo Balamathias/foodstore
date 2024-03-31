@@ -104,6 +104,7 @@ const create = () => {
             darkColor={Colors.dark.card} 
             placeholder='Price' 
             value={fields.price}
+            keyboardType='numeric'
             style={[{color: Colors[colorScheme || 'light'].text},styles.nameInput, {borderColor: Colors[colorScheme || 'light'].tint,}]} 
           />
         </View>
@@ -146,7 +147,6 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     nameInput: {
-        height: 40,
         padding: 10,
         borderColor: Colors.light.tint,
         marginVertical: 10,

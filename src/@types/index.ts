@@ -1,0 +1,1 @@
+export type Form = 'sign-up' | 'sign-in'

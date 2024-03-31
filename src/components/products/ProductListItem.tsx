@@ -20,7 +20,6 @@ const ProductListItem = ({ product }: { product: Product }) => {
             </View>
         </TouchableOpacity>
     </Link>
-
   )
 }
 
